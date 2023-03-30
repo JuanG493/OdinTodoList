@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+</head>
+
+<body>
+    <div class="mainBtns">
+        <button class="btnNew"> +</button>
+        <div class="checkL">checklist</div>
+        <div class="note">note</div>
+    </div>
+
+    <div class="comands">
+        <h1>TODO LIST</h1>
+
+    </div>
+    <div class="sidebar">
+        <div class="home">
+            <div class="today">Today</div>
+            <div class="upcoming">Upcoming</div>
+        </div>
+        <div class="projects">Projects</div>
+    </div>
+    <div class="mainframe">Main</div>
+
+
+    <div class="itemsTo">
+        <form class="formElments">
+            <h1>TODO</h1>
+            <label for="title" >Title</label>
+            <input type="text" class="inp" id="title">
+            <label for="date">Date</label>
+            <input type="date" class="inp" id="date">
+            <!-- <div>
+                <h3>priority</h3>
+                <input type="radio" id="baja" name="priority" value="baja" class="inp">
+                <label for="baja">Baja</label>
+                <input type="radio" id="media" name="priority" value="media" class="inp">
+                <label for="media">Media</label>
+                <input type="radio" id="alta" name="priority" value="alta" class="inp">
+                <label for="alta">Alta</label>
+            </div> -->
+            <div id="displayToDo">
+                <ul class="listOfCheckL"></ul>
+                <button class="btnpls">+</button>
+                <div class="notes"></div>
+            </div>
+            <input type="submit" id="submit">
+            <input type="reset" id="reset">
+            <button class="close">X</button>
+        </form>
+
+
+
+    </div>
+
+    <script defer src="main.js"></script>
+    <script>
+
+        // const calle = function () {
+        //     console.log('meeeeeeeeeeeeee')
+        // }
+    </script>
+
+</body>
+
+</html>

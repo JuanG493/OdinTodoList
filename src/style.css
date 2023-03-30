@@ -1,0 +1,161 @@
+* {
+    /* font-size: small; */
+    box-sizing: border-box;
+    /* color: white; */
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.comands {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    height: 100vh;
+    /* width: 300px; */
+    grid-column: 1 / 2;
+}
+
+.mainframe {
+    grid-column: 2 / 3;
+}
+
+.mainBtns {
+    position: sticky;
+
+    top: 85%;
+    left: 100%;
+    font-size: x-large;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    /* justify-items: center; */
+    /* display: flex;
+    justify-content: center;
+    padding: 0; */
+
+}
+
+.btnNew {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    /* justify-items: center; */
+    /* align-self: center; */
+    justify-self: center;
+}
+
+.checkL,
+.note {
+    display: none;
+    /* position: absolute; */
+    width: 30px;
+
+
+}
+
+
+
+.checkL.show {
+    display: flex;
+    font-size: large;
+    grid-row: 2 / 3;
+    align-self: center;
+    /* justify-self: center; */
+    /* width: 60px;
+    transition-timing-function: ease;
+    color: aqua; */
+    /* position: absolute; */
+
+    /* border: 2px solid red; */
+
+
+}
+
+.note.show {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    grid-column: 2 / 3;
+    /* border: 1px solid green; */
+}
+
+.itemsTo {
+    color: blanchedalmond;
+    display: none;
+    position: fixed;
+
+    top: 20%;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.815);
+    justify-content: center;
+    align-items: center;
+    /* color: rebeccapurple; */
+    /* font-size: 5rem; */
+}
+
+.itemsTo.show {
+    /* position: absolute;
+    top: 50%;
+    left: 25%;
+
+    display: flex;
+    border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#displayToDo{
+    display: flex;
+    /* flex-direction: column; */
+
+    /* position: relative; */
+    /* grid-template-columns: 1fr 1fr; */
+    /* flex-direction: column; */
+}
+.listOfCheckL li{
+    list-style: none;
+}
+
+#pluschek {
+    justify-self: center;
+    align-self: flex-end;
+    margin-bottom: 16px;
+    /* grid-column: 2;
+    grid-template-rows: -1; */
+    /* position: absolute;
+    right: 1em; */
+    /* left: 20em; */
+}
+
+.listOfCheckL{
+    display: none;
+}
+
+.listOfCheckL.show{
+    display:block;
+}
+
+.btnpls{
+    display: none;
+}
+
+.btnpls.show{
+    justify-self: center;
+    align-self: flex-end;
+    display: block;
+    margin-bottom: 16px;
+}
+

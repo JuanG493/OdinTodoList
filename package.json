@@ -1,0 +1,29 @@
+{
+  "name": "todolist_odinpj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanG493/TodoList_OdinPJ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanG493/TodoList_OdinPJ/issues"
+  },
+  "homepage": "https://github.com/JuanG493/TodoList_OdinPJ#readme",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "style-loader": "^3.3.2"
+  }
+}
