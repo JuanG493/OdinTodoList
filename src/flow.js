@@ -52,7 +52,7 @@ function mkGeneralElements(vTitle = "", vData = "") {
   let dayDate = new Date().toLocaleDateString().split("/");
   formElm.innerHTML += `
     <label for="title">Title</label>
-    <input type="text" id="title" class="bsInfo inp" value="${vTitle}"></input>
+    <input type="text" id="title" class="bsInfo inp" value="${vTitle}" required ></input>
     <label for="date">date</label>
     <input type="date" id="date" class="bsInfo inp" 
       min="${dayDate[2]}-${dayDate[0].padStart(2, "0")}-${dayDate[1]}" 
@@ -184,7 +184,7 @@ function interfaceNote(notePre = "") {
 
 function mkFormatingObjToDO(indicator, valuesElment) {
   const titleDate = obteinValues(selectorAll(".bsInfo"));
-  let nameObj = String(titleDate.title);
+  let nameObj = String(titleDate.title) || "nn";
 
   let creatingTheObj;
   if (indicator === "note") {
