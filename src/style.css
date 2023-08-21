@@ -1,45 +1,77 @@
+
 * {
-    /* font-size: small; */
     box-sizing: border-box;
-    /* color: white; */
 }
 
 body {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    font-family:monospace
 }
 
 .comands {
     grid-column: 1 / -1;
+    /* grid-row: 1 /  ; */
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #042940;
+}
+.sidebar {
+    color: #042940;
+    height: 100vh;
+    grid-column: 1 / 2;
 }
 
-.sidebar {
-    height: 100vh;
-    /* width: 300px; */
-    grid-column: 1 / 2;
+.dtToday{
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.dtUpcoming{
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.projects{
+    font-size: xx-large;
+}
+.projectNew{
+    font-size: large;
 }
 
 .mainframe {
     grid-column: 2 / 3;
 }
 
+.displayproyects  {
+    border: thick double #005C53;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+}
+
 .mainBtns {
     position: sticky;
-
     top: 85%;
     left: 100%;
     font-size: x-large;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    /* justify-items: center; */
-    /* display: flex;
-    justify-content: center;
-    padding: 0; */
+}
 
+button{
+    background-color: #9FC131;
+    color: black;
+    border-color: rgb(255, 255, 255);
+    padding: 1% 3%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
 }
 
 .btnNew {
@@ -49,51 +81,35 @@ body {
     border-radius: 50%;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    /* justify-items: center; */
-    /* align-self: center; */
     justify-self: center;
 }
 
-.checkL,
-.note {
+.btnCheckL,
+.btnNote {
     display: none;
-    /* position: absolute; */
-    width: 30px;
-
-
 }
 
 
 
-.checkL.show {
+.btnCheckL.show {
     display: flex;
-    font-size: large;
+    align-self: center;
+    justify-content: center;
     grid-row: 2 / 3;
-    align-self: center;
-    /* justify-self: center; */
-    /* width: 60px;
-    transition-timing-function: ease;
-    color: aqua; */
-    /* position: absolute; */
-
-    /* border: 2px solid red; */
-
-
+    align-items: center;
 }
 
-.note.show {
+.btnNote.show {
     display: flex;
     align-self: center;
-    justify-self: center;
+    justify-content: center;
     grid-column: 2 / 3;
-    /* border: 1px solid green; */
 }
 
-.itemsTo {
+.inputs {
     color: blanchedalmond;
     display: none;
     position: fixed;
-
     top: 20%;
     bottom: 10%;
     left: 0;
@@ -101,44 +117,28 @@ body {
     background-color: rgba(0, 0, 0, 0.815);
     justify-content: center;
     align-items: center;
-    /* color: rebeccapurple; */
-    /* font-size: 5rem; */
 }
 
-.itemsTo.show {
-    /* position: absolute;
-    top: 50%;
-    left: 25%;
+.inputs.show {
 
-    display: flex;
-    border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#displayToDo{
+.listOfCheckList{
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
+    align-items: center;
 
-    /* position: relative; */
-    /* grid-template-columns: 1fr 1fr; */
-    /* flex-direction: column; */
-}
-.listOfCheckL li{
-    list-style: none;
 }
 
 #pluschek {
     justify-self: center;
     align-self: flex-end;
     margin-bottom: 16px;
-    /* grid-column: 2;
-    grid-template-rows: -1; */
-    /* position: absolute;
-    right: 1em; */
-    /* left: 20em; */
 }
+
 
 .listOfCheckL{
     display: none;
@@ -148,10 +148,6 @@ body {
     display:block;
 }
 
-.btnpls{
-    display: none;
-}
-
 .btnpls.show{
     justify-self: center;
     align-self: flex-end;
@@ -159,3 +155,19 @@ body {
     margin-bottom: 16px;
 }
 
+#noteElm{
+    width: 25%;
+    height: 5rem;
+}
+
+.chekeado + label{
+    text-decoration: line-through;
+}
+
+a{
+    color:#042940;
+    text-decoration: underline;
+}
+a:hover{
+    color: #DBF227;
+}
