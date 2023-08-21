@@ -56,8 +56,7 @@ function mkGeneralElements(vTitle = "", vData = "") {
     <label for="date">date</label>
     <input type="date" id="date" class="bsInfo inp" 
       min="${dayDate[2]}-${dayDate[0].padStart(2, "0")}-${dayDate[1]}" 
-      value="${vData}"></input>
-  `;
+      value="${vData}"></input>`;
 }
 
 function toggleClass(elements) {
@@ -109,7 +108,6 @@ function interfaceCheckList(listOfChMade = "") {
   const listOfCheckList = selector(".listOfCheckList");
   const btnSubmit = selector("#submit");
   const btnClose = selector(".close");
-  // const displayPj = selector("#pjDisplay");
 
   displayProyectSelection();
 
@@ -207,10 +205,7 @@ function mkFormatingObjToDO(indicator, valuesElment) {
   }
   //coping the key and values no all the jungle -.-
   collectionToDos[nameObj] = formatObjToKeyValue(creatingTheObj);
-  // console.log("collections: ", collectionToDos);
-  // let indexElm = Object.keys(collectionToDos).indexOf(nameObj);
   idPjInArray(nameObj);
-  // console.log(collectionToDos[nameObj]);
   filter(collectionToDos[nameObj]);
   saveTheInfo(collectionToDos[nameObj]);
 }
@@ -225,7 +220,6 @@ function loadPjAndToDo() {
     let key = localStorage.key(i - 1);
     let valuePj = JSON.parse(localStorage.getItem(key));
     collectionToDos[key] = valuePj;
-
     //prevent to add two times the same project to the sideBar
     if (!projects.includes(valuePj.project)) {
       projects.push(valuePj.project);
@@ -326,11 +320,9 @@ function updateProjects(nameOfPj) {
 
 function displayToDoByProjects(nameOfPj) {
   renewForm(formElm);
-
   //check if collectionToDos have at least one elemmnet
   if (Object.getOwnPropertyNames(collectionToDos).length >= 1) {
     for (let to in collectionToDos) {
-      // console.log("to: ", collectionToDos[to], "nameOfPJ: ", nameOfPj);
       if (collectionToDos[to].project === nameOfPj) {
         displayToDoByBtn(collectionToDos[to], false);
       }

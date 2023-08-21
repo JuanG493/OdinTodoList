@@ -1,5 +1,4 @@
 import { collectionToDos, interfaceCheckList, interfaceNote } from "./flow.js";
-// import { isSameDay } from "date-fns";
 import { isToday } from "date-fns";
 import { renewForm } from "./flow.js";
 import { mkGeneralElements } from "./flow.js";
@@ -99,11 +98,6 @@ function displayToDoByBtn(projectToDo, itsAList) {
     }
     procesingDeletion(projectToDo);
   });
-
-  //   btnSaveInfo.addEventListener("click", (event) => {
-  //     event.preventDefault();
-  //     console.log("...saving");
-  //   });
 
   checkboxing.forEach((box) => {
     box.addEventListener("click", () => {

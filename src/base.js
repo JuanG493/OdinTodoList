@@ -1,5 +1,3 @@
-// import { testing } from "./flow.js";
-
 class ToDo {
   constructor(title, date, project) {
     this.title = title;
@@ -22,16 +20,4 @@ class MkNote extends ToDo {
   }
 }
 
-// function createNewCheckLIst(title, date, project, list) {
-//   const objToDo = {};
-
-//   objToDo.name = title;
-//   objToDo.date = date;
-//   objToDo.project = project;
-//   objToDo.list = list;
-
-//   return objToDo;
-// }
-
-// export { createNewCheckLIst };
 export { MkNote, CheckList };
