@@ -1,4 +1,6 @@
-import { MkNote, CheckList } from "./base.js";
+// eslint-disable-next-line import/extensions
+import { MkNote, CheckList } from './base.js';
+// eslint-disable-next-line import/no-cycle
 import {
   selector,
   selectorAll,
@@ -6,24 +8,26 @@ import {
   formElm,
   allProjects,
   collectionToDos,
-} from "./index.js";
-import { filter, displayToDoByBtn } from "./priority.js";
+// eslint-disable-next-line import/extensions
+} from './index.js';
+// eslint-disable-next-line import/extensions
+import { filter, displayToDoByBtn } from './priority.js';
 
-function interfaceCheckList(listOfChMade = "") {
+function interfaceCheckList(listOfChMade = '') {
   formElm.innerHTML += `
-  <div class="displayCheckL">
+  <div class='displayCheckL'>
     <h3>list</h3>
     <div id='pjDisplay'></div>
-    <ul class="listOfCheckList"></ul>
-    <button class="btnpls">+</button>
-    <input type="submit" id="submit" />
-    <button class="close">X</button>
+    <ul class='listOfCheckList'></ul>
+    <button class='btnpls'>+</button>
+    <input type='submit' id='submit' />
+    <button class='close'>X</button>
 </div>`;
 
-  const btnAddList = selector(".btnpls");
-  const listOfCheckList = selector(".listOfCheckList");
-  const btnSubmit = selector("#submit");
-  const btnClose = selector(".close");
+  const btnAddList = selector('.btnpls');
+  const listOfCheckList = selector('.listOfCheckList');
+  const btnSubmit = selector('#submit');
+  const btnClose = selector('.close');
 
   displayProyectSelection();
 
@@ -31,61 +35,61 @@ function interfaceCheckList(listOfChMade = "") {
   if (listOfChMade) {
     for (const [key, value] of Object.entries(listOfChMade)) {
       listOfCheckList.innerHTML += `
-      <input type="text" id="${key}" class="chi inp" value="${value}">`;
+      <input type='text' id='${key}' class='chi inp' value='${value}'>`;
     }
   }
-  btnAddList.addEventListener("click", (event) => {
+  btnAddList.addEventListener('click', (event) => {
     event.preventDefault();
-    let idChL = selectorAll(".chi").length + 1 || 1;
+    const idChL = selectorAll('.chi').length + 1 || 1;
     mkLiandInputNode(listOfCheckList, idChL);
   });
 
-  btnSubmit.addEventListener("click", (event) => {
+  btnSubmit.addEventListener('click', (event) => {
     event.preventDefault();
-    const checklistElements = obteinValues(selectorAll(".chi"));
-    mkFormatingObjToDO("check", checklistElements);
+    const checklistElements = obteinValues(selectorAll('.chi'));
+    mkFormatingObjToDO('check', checklistElements);
     renewForm(formElm);
   });
 
-  btnClose.addEventListener("click", () => {
+  btnClose.addEventListener('click', () => {
     renewForm(formElm);
   });
 }
 
-function interfaceNote(notePre = "") {
+function interfaceNote(notePre = '') {
   formElm.innerHTML += `
-    <div class="displayCheckL">
+    <div class='displayCheckL'>
       <h3>Note</h3>
       <div id='pjDisplay'></div>
       <label for='noteElm'></div>
-      <input type="text" size="20" id="noteElm" value="${notePre}"></input>
-      <input type="submit" id="submit" />
-      <button class="close">X</button>
+      <input type='text' size='20' id='noteElm' value='${notePre}'></input>
+      <input type='submit' id='submit' />
+      <button class='close'>X</button>
     </div>`;
 
-  const btnSubmit = selector("#submit");
-  const btnClose = selector(".close");
+  const btnSubmit = selector('#submit');
+  const btnClose = selector('.close');
 
   displayProyectSelection();
 
-  btnSubmit.addEventListener("click", (event) => {
+  btnSubmit.addEventListener('click', (event) => {
     event.preventDefault();
-    const noteElment = selector("#noteElm").value;
-    mkFormatingObjToDO("note", noteElment);
+    const noteElment = selector('#noteElm').value;
+    mkFormatingObjToDO('note', noteElment);
     renewForm(formElm);
   });
 
-  btnClose.addEventListener("click", () => {
+  btnClose.addEventListener('click', () => {
     renewForm(formElm);
   });
 }
 
 function mkFormatingObjToDO(indicator, valuesElment) {
-  const titleDate = obteinValues(selectorAll(".bsInfo"));
-  let nameObj = String(titleDate.title) || "nn";
+  const titleDate = obteinValues(selectorAll('.bsInfo'));
+  let nameObj = String(titleDate.title) || 'nn';
 
   let creatingTheObj;
-  if (indicator === "note") {
+  if (indicator === 'note') {
     creatingTheObj = new MkNote(
       nameObj,
       String(titleDate.date),
@@ -93,15 +97,16 @@ function mkFormatingObjToDO(indicator, valuesElment) {
       valuesElment
     );
   } else {
-    //checklist
+    // checklist
     creatingTheObj = new CheckList(
       nameObj,
       String(titleDate.date),
       getNameOfProject(),
-      valuesElment
+      valuesElment,
     );
   }
-  //coping the key and values no all the jungle -.-
+  //  coping the key and values no all the jungle -.-
+
   collectionToDos[nameObj] = formatObjToKeyValue(creatingTheObj);
   idPjInArray(nameObj);
   filter(collectionToDos[nameObj]);
@@ -109,15 +114,16 @@ function mkFormatingObjToDO(indicator, valuesElment) {
 }
 
 function getNameOfProject() {
-  let listOfSelections = selector("#pjDisplay");
+  const listOfSelections = selector('#pjDisplay');
   return listOfSelections.children[1].value;
 }
 
 function idPjInArray(nameToserch) {
-  let id = Object.keys(collectionToDos).indexOf(nameToserch);
-  //add id to the project
-  let projectN = collectionToDos[nameToserch];
-  projectN["id"] = id;
+  const id = Object.keys(collectionToDos).indexOf(nameToserch);
+
+  //  add id to the project
+  const projectN = collectionToDos[nameToserch];
+  projectN['id'] = id;
   return id;
 }
 
@@ -134,19 +140,19 @@ function saveTheInfo(todoObj) {
 }
 
 function displayProyectSelection() {
-  const displayPj = selector("#pjDisplay");
-  let optionsPj = "";
+  const displayPj = selector('#pjDisplay');
+  let optionsPj = '';
   for (let pj of allProjects) {
-    optionsPj += `<option value="${pj}" >${pj}</option>`;
+    optionsPj += `<option value='${pj}' >${pj}</option>`;
   }
   displayPj.innerHTML = `
-  <label for="pj-select">Choose a project:</label>
-  <select name="projectSelect" id="pj-select">
+  <label for='pj-select'>Choose a project:</label>
+  <select name='projectSelect' id='pj-select'>
   ${optionsPj}
   </select>`;
 }
 
-//function acept a nodeLIst and return those values for each node
+//  function acept a nodeLIst and return those values for each node
 function obteinValues(nodeListI) {
   let partialObj = {};
   [...nodeListI].map((n) => {
@@ -156,45 +162,45 @@ function obteinValues(nodeListI) {
 }
 
 function mkLiandInputNode(father, id) {
-  let newItemL = mkElement("li");
-  newItemL.appendChild(mkElement("input", "text", `chi${id}`, "chi inp"));
+  let newItemL = mkElement('li');
+  newItemL.appendChild(mkElement('input', 'text', `chi${id}`, 'chi inp'));
   father.appendChild(newItemL);
 }
 
-function mkElement(elemnt, type = "", id = "", clasName = "") {
+function mkElement(elemnt, type = '', id = '', clasName = '') {
   let newElement = document.createElement(`${elemnt}`);
   if (type) {
-    newElement.setAttribute("type", `${type}`);
+    newElement.setAttribute('type', `${type}`);
   }
   if (id) {
-    newElement.setAttribute("id", `${id}`);
+    newElement.setAttribute('id', `${id}`);
   }
   if (clasName) {
-    newElement.setAttribute("class", `${clasName}`);
+    newElement.setAttribute('class', `${clasName}`);
   }
   return newElement;
 }
 
 function interfaceProyects() {
   formElm.innerHTML += `
-  <div class="groupProjects">
+  <div class='groupProjects'>
     <h3>Project</h3>
     <label for='projectName'></div>
-    <input type="text" id="projectName"></input>
-    <input type="submit" id="submit" />
-    <button class="close">X</button>
+    <input type='text' id='projectName'></input>
+    <input type='submit' id='submit' />
+    <button class='close'>X</button>
   </div>`;
 
-  const btnSubmit = selector("#submit");
-  const btnClose = selector(".close");
+  const btnSubmit = selector('#submit');
+  const btnClose = selector('.close');
 
-  btnClose.addEventListener("click", () => {
+  btnClose.addEventListener('click', () => {
     renewForm(formElm);
   });
 
-  btnSubmit.addEventListener("click", (event) => {
+  btnSubmit.addEventListener('click', (event) => {
     event.preventDefault();
-    const projectField = selector("#projectName");
+    const projectField = selector('#projectName');
     const projectName = projectField.value;
 
     allProjects.push(projectName);
@@ -203,24 +209,24 @@ function interfaceProyects() {
   });
 }
 
-//update the side bar with projects
+//  update the side bar with projects
 function updateProjects(nameOfPj) {
-  const displayProjects = selector(".displayProjects");
+  const displayProjects = selector('.displayProjects');
 
   displayProjects.innerHTML += `
     <div>
       <a class='projectNew ${nameOfPj}'>${nameOfPj}</a>
-      <button class="delProject" value="${nameOfPj}">X</button>
+      <button class='delProject' value='${nameOfPj}'>X</button>
     </div>`;
 
-  //add event listener to each new project
-  const delProject = selectorAll(".delProject");
+  //  add event listener to each new project
+  const delProject = selectorAll('.delProject');
   const projectLink = selectorAll(`.projectNew`);
 
   delProject.forEach((project) => {
-    project.addEventListener("click", () => {
+    project.addEventListener('click', () => {
       displayProjects.removeChild(project.parentNode);
-      //update the list of projects
+      //  update the list of projects
       let element = allProjects.indexOf(project.value);
       allProjects.splice(element, 1);
       renewForm(formElm);
@@ -228,7 +234,7 @@ function updateProjects(nameOfPj) {
   });
 
   projectLink.forEach((projectLink) => {
-    projectLink.addEventListener("click", () => {
+    projectLink.addEventListener('click', () => {
       displayToDoByProjects(projectLink.innerText);
     });
   });
@@ -236,7 +242,7 @@ function updateProjects(nameOfPj) {
 
 function displayToDoByProjects(nameOfPj) {
   renewForm(formElm);
-  //check if collectionToDos have at least one elemmnet
+  //  check if collectionToDos have at least one elemmnet
   if (Object.getOwnPropertyNames(collectionToDos).length >= 1) {
     for (let to in collectionToDos) {
       if (collectionToDos[to].project === nameOfPj) {
@@ -246,4 +252,6 @@ function displayToDoByProjects(nameOfPj) {
   }
 }
 
-export { interfaceCheckList, interfaceNote, interfaceProyects, updateProjects };
+export {
+  interfaceCheckList, interfaceNote, interfaceProyects, updateProjects,
+};

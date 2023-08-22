@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TodoList</title>
-  </head>
 
-  <body>
-    <div class="mainBtns">
-      <button class="btnNew">+</button>
-      <button class="btnCheckL">List</button>
-      <button class="btnNote">note</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TodoList</title>
+</head>
+
+<body>
+  <div class="mainBtns">
+    <button class="btnNew">+</button>
+    <button class="btnCheckL">List</button>
+    <button class="btnNote">note</button>
+  </div>
+  <div class="comands">
+    <h1>TODO LIST</h1>
+  </div>
+  <div class="sidebar">
+    <div class="home">
+      <div class="dtToday">Today</div>
+      <div class="dtUpcoming">Upcoming</div>
     </div>
-    <div class="comands">
-      <h1>TODO LIST</h1>
+    <div class="projects">
+      Projects
+      <button class="btnNewProject">+</button>
+      <ul class="displayProjects"></ul>
     </div>
-    <div class="sidebar">
-      <div class="home">
-        <div class="dtToday">Today</div>
-        <div class="dtUpcoming">Upcoming</div>
-      </div>
-      <div class="projects">
-        Projects
-        <button class="btnNewProject">+</button>
-        <ul class="displayProjects"></ul>
-      </div>
-    </div>
-    <div class="mainframe">
-      <form class="formElm"></form>
-    </div>
-    <script defer src="main.js"></script>
-  </body>
+  </div>
+  <div class="mainframe">
+    <form class="formElm"></form>
+  </div>
+  <script defer src="main.js"></script>
+</body>
+
 </html>

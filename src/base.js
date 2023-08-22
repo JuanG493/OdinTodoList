@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 class ToDo {
   constructor(title, date, project) {
     this.title = title;
