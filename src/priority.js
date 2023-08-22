@@ -1,7 +1,7 @@
-import { collectionToDos, interfaceCheckList, interfaceNote } from "./flow.js";
+import { collectionToDos, interfaceCheckList, interfaceNote } from "./index.js";
 import { isToday } from "date-fns";
-import { renewForm } from "./flow.js";
-import { mkGeneralElements } from "./flow.js";
+import { renewForm } from "./index.js";
+import { mkGeneralElements } from "./index.js";
 
 const formElm = document.querySelector(".formElm");
 const todayProjects = document.querySelector(".dtToday");
