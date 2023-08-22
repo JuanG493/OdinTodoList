@@ -15,7 +15,6 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          mkdir dist
           cp  dist/todoList.html
           echo "User-agent: *" > dist/robots.txt
 
