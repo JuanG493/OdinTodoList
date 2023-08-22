@@ -7,7 +7,7 @@ import {
   allProjects,
   collectionToDos,
 } from "./index.js";
-import { filter } from "./priority.js";
+import { filter, displayToDoByBtn } from "./priority.js";
 
 function interfaceCheckList(listOfChMade = "") {
   formElm.innerHTML += `
