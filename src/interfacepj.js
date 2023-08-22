@@ -86,7 +86,7 @@ function interfaceNote(notePre = '') {
 
 function mkFormatingObjToDO(indicator, valuesElment) {
   const titleDate = obteinValues(selectorAll('.bsInfo'));
-  let nameObj = String(titleDate.title) || 'nn';
+  const nameObj = String(titleDate.title) || 'nn';
 
   let creatingTheObj;
   if (indicator === 'note') {
@@ -94,7 +94,7 @@ function mkFormatingObjToDO(indicator, valuesElment) {
       nameObj,
       String(titleDate.date),
       getNameOfProject(),
-      valuesElment
+      valuesElment,
     );
   } else {
     // checklist
@@ -123,13 +123,13 @@ function idPjInArray(nameToserch) {
 
   //  add id to the project
   const projectN = collectionToDos[nameToserch];
-  projectN['id'] = id;
+  projectN.id = id;
   return id;
 }
 
 function formatObjToKeyValue(obj) {
-  let formatingObjet = {};
-  for (let key in obj) {
+  const formatingObjet = {};
+  for (const key in obj) {
     formatingObjet[key] = obj[key];
   }
   return formatingObjet;
@@ -142,7 +142,7 @@ function saveTheInfo(todoObj) {
 function displayProyectSelection() {
   const displayPj = selector('#pjDisplay');
   let optionsPj = '';
-  for (let pj of allProjects) {
+  for (const pj of allProjects) {
     optionsPj += `<option value='${pj}' >${pj}</option>`;
   }
   displayPj.innerHTML = `
@@ -154,21 +154,19 @@ function displayProyectSelection() {
 
 //  function acept a nodeLIst and return those values for each node
 function obteinValues(nodeListI) {
-  let partialObj = {};
-  [...nodeListI].map((n) => {
-    return (partialObj[`${n.id}`] = [n.value]);
-  });
+  const partialObj = {};
+  [...nodeListI].map((n) => (partialObj[`${n.id}`] = [n.value]));
   return partialObj;
 }
 
 function mkLiandInputNode(father, id) {
-  let newItemL = mkElement('li');
+  const newItemL = mkElement('li');
   newItemL.appendChild(mkElement('input', 'text', `chi${id}`, 'chi inp'));
   father.appendChild(newItemL);
 }
 
 function mkElement(elemnt, type = '', id = '', clasName = '') {
-  let newElement = document.createElement(`${elemnt}`);
+  const newElement = document.createElement(`${elemnt}`);
   if (type) {
     newElement.setAttribute('type', `${type}`);
   }
@@ -221,13 +219,13 @@ function updateProjects(nameOfPj) {
 
   //  add event listener to each new project
   const delProject = selectorAll('.delProject');
-  const projectLink = selectorAll(`.projectNew`);
+  const projectLink = selectorAll('.projectNew');
 
   delProject.forEach((project) => {
     project.addEventListener('click', () => {
       displayProjects.removeChild(project.parentNode);
       //  update the list of projects
-      let element = allProjects.indexOf(project.value);
+      const element = allProjects.indexOf(project.value);
       allProjects.splice(element, 1);
       renewForm(formElm);
     });
@@ -244,7 +242,7 @@ function displayToDoByProjects(nameOfPj) {
   renewForm(formElm);
   //  check if collectionToDos have at least one elemmnet
   if (Object.getOwnPropertyNames(collectionToDos).length >= 1) {
-    for (let to in collectionToDos) {
+    for (const to in collectionToDos) {
       if (collectionToDos[to].project === nameOfPj) {
         displayToDoByBtn(collectionToDos[to], false);
       }

@@ -1,7 +1,7 @@
-import { collectionToDos, interfaceCheckList, interfaceNote } from './index.js';
 import { isToday } from 'date-fns';
-import { renewForm } from './index.js';
-import { mkGeneralElements } from './index.js';
+import {
+  collectionToDos, interfaceCheckList, interfaceNote, renewForm, mkGeneralElements,
+} from './index.js';
 
 const formElm = document.querySelector('.formElm');
 const todayProjects = document.querySelector('.dtToday');
@@ -12,10 +12,10 @@ function filter(ObjTodo) {
   //  filter the ToDo according to the date and add that tempo to pj
   if (isToday(new Date(`${ObjTodo.date}`))) {
     //  add the tempo to the object
-    ObjTodo['tempo'] = 'dtToday';
+    ObjTodo.tempo = 'dtToday';
     mkButtonProject(ObjTodo, todayProjects);
   } else {
-    ObjTodo['tempo'] = 'dtUpcoming';
+    ObjTodo.tempo = 'dtUpcoming';
     mkButtonProject(ObjTodo, upcommingProjects);
   }
 }
@@ -44,8 +44,8 @@ function displayToDoByBtn(projectToDo, itsAList) {
 
   formElm.innerHTML += `<div class='${projectToDo.title}${projectToDo.id} displayproyects'</div>`;
 
-  let newProjectElment = document.querySelector(
-    `.${projectToDo.title}${projectToDo.id}`
+  const newProjectElment = document.querySelector(
+    `.${projectToDo.title}${projectToDo.id}`,
   );
   newProjectElment.innerHTML += ` 
           <div>
@@ -75,9 +75,9 @@ function displayToDoByBtn(projectToDo, itsAList) {
               <button id='modifyToDo'>modify</button>
             </div>`;
 
-  let btnDeleteToDo = document.querySelector('#delToDo');
-  let btnModifyToDo = document.querySelector('#modifyToDo');
-  let checkboxing = document.querySelectorAll('.checkBoxing');
+  const btnDeleteToDo = document.querySelector('#delToDo');
+  const btnModifyToDo = document.querySelector('#modifyToDo');
+  const checkboxing = document.querySelectorAll('.checkBoxing');
 
   //  delete
   btnDeleteToDo.addEventListener('click', (event) => {
@@ -108,8 +108,8 @@ function displayToDoByBtn(projectToDo, itsAList) {
 }
 //  remove the element of the DOM
 function procesingDeletion(projectDel) {
-  let ubicationPjSideBar = document.querySelector(`.${projectDel.tempo}`);
-  let elementTodel = document.querySelector(`#pj_${projectDel.id}`);
+  const ubicationPjSideBar = document.querySelector(`.${projectDel.tempo}`);
+  const elementTodel = document.querySelector(`#pj_${projectDel.id}`);
   ubicationPjSideBar.removeChild(elementTodel);
   actualizationObj(projectDel.title);
 }

@@ -79,8 +79,6 @@ function mkGeneralElements(vTitle = '', vData = '') {
       value='${vData}'></input>`;
 }
 
-
-
 function selectorAll(target) {
   return document.querySelectorAll(target);
 }
