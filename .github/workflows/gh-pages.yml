@@ -15,8 +15,10 @@ jobs:
 
       - name: Build and Deploy
         run: |
-          cp  dist/todoList.html
-          echo "User-agent: *" > dist/robots.txt
+        mkdir -p dist
+        cp  dist/todoList.html
+        echo "User-agent: *" > dist/robots.txt
+         
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
